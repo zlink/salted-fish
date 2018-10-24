@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+use app\console\Kernel;
+use Symfony\Component\Console\Application;
+
+require __DIR__ . '/../app/bootstrap.php';
+
+(new Kernel(new Application()))->run();
