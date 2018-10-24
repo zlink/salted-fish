@@ -1,5 +1,5 @@
 <?php
 
-$app->route('/', function() use ($app) {
-    echo 'hello auth';
-});
+use app\controllers\IndexController;
+
+$app->route('/', [IndexController::class, 'index']);

@@ -9,7 +9,9 @@
 namespace app\controllers;
 
 
+use app\util\Response;
+
 class Controller
 {
-
+    use Response;
 }

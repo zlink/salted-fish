@@ -8,8 +8,10 @@
 
 namespace app\controllers;
 
-
-class IndexController
+class IndexController extends Controller
 {
-
+    public function show()
+    {
+        return $this->message('hello world');
+    }
 }
