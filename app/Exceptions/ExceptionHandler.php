@@ -24,8 +24,7 @@ class ExceptionHandler
     public function __invoke(Exception $exception)
     {
         // todo:: 记录异常到日志
-        $env = 'production';
-        if ($env != 'production') {
+        if (config('app.env') != 'production') {
             return $this->failed($exception->getMessage());
         }
 
