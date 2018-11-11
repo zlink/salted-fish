@@ -12,7 +12,6 @@ class IndexController extends Controller
 {
     public function show()
     {
-        echo $data['index'];
         return $this->success('hello world');
     }
 }
