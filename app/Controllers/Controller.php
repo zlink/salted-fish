@@ -5,7 +5,6 @@ namespace App\Controllers;
 
 use App\Util\Response;
 use Flight;
-use Symfony\Component\Translation\Exception\NotFoundResourceException;
 
 class Controller
 {
@@ -18,6 +17,7 @@ class Controller
 
     private function init()
     {
+        // 垃圾代码，为了适应公司使用了session的api项目
         $sessionId = Flight::request()->query['session_id'];
         if ($sessionId !== null) {
             session_regenerate_id();
@@ -25,8 +25,4 @@ class Controller
         }
     }
 
-    public function auth()
-    {
-        throw new \Exception('login');
-    }
 }

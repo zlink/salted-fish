@@ -30,7 +30,6 @@ trait Response
     /**
      * @param $data
      * @param array $headers
-     * @throws \Exception
      */
     public function respond($data, $headers = [])
     {
@@ -43,7 +42,6 @@ trait Response
      * @param array $data
      * @param null $code
      * @return false|string
-     * @throws \Exception
      */
     public function status($status, array $data, $code = null)
     {
@@ -53,7 +51,7 @@ trait Response
 
         $status = [
             'status' => $status,
-            'code' => $this->statusCode
+            'code' => $this->getStatusCode()
         ];
 
         $data = array_merge($status, $data);
@@ -65,7 +63,6 @@ trait Response
      * @param int $code
      * @param string $status
      * @return false|string
-     * @throws \Exception
      */
     public function failed($message, $code = FoundationResponse::HTTP_BAD_REQUEST, $status = 'error')
     {
@@ -76,7 +73,6 @@ trait Response
      * @param $message
      * @param string $status
      * @return false|string
-     * @throws \Exception
      */
     public function message($message, $status = "success")
     {
@@ -86,7 +82,6 @@ trait Response
     /**
      * @param string $message
      * @return false|string|void
-     * @throws \Exception
      */
     public function internalError($message = "Internal Error!")
     {
@@ -96,7 +91,6 @@ trait Response
     /**
      * @param string $message
      * @return false|string|void
-     * @throws \Exception
      */
     public function created($message = "created")
     {
@@ -107,7 +101,6 @@ trait Response
      * @param $data
      * @param string $status
      * @return false|string
-     * @throws \Exception
      */
     public function success($data, $status = "success")
     {
@@ -117,7 +110,6 @@ trait Response
     /**
      * @param string $message
      * @return false|string|void
-     * @throws \Exception
      */
     public function notFond($message = 'Not Fond!')
     {

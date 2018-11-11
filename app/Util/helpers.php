@@ -27,3 +27,10 @@ if (!function_exists('config')) {
 
     }
 }
+
+if (!function_exists('request')) {
+    function request($key, $default = null)
+    {
+        return Flight::request();
+    }
+}
