@@ -11,6 +11,6 @@ class NotFoundExceptionHandler
 
     public function __invoke()
     {
-        echo $this->notFond();
+        return $this->notFond();
     }
 }

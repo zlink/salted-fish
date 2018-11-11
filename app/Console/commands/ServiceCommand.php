@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\commands;
+namespace App\Console\Commands;
 
 use app\Services\GreetingService;
 use Symfony\Component\Console\Command\Command;

@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use app\Console\commands\HelloCommand;
-use app\Console\commands\ServiceCommand;
+use app\Console\Commands\HelloCommand;
+use app\Console\Commands\ServiceCommand;
 use Symfony\Component\Console\Application;
 
 class Kernel
@@ -17,11 +17,11 @@ class Kernel
 
     /**
      * Kernel constructor.
-     * @param Application $appliction
+     * @param Application $application
      */
-    public function __construct(Application $appliction)
+    public function __construct(Application $application)
     {
-        $this->application = $appliction;
+        $this->application = $application;
 
         $this->register();
     }
