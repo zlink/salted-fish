@@ -1,5 +1,7 @@
 <?php
 
+use App\Exceptions\ExceptionHandler;
+use App\Exceptions\NotFoundExceptionHandler;
 use Dotenv\Dotenv;
 use Dotenv\Exception\ValidationException;
 use flight\Engine;
@@ -17,25 +19,8 @@ try {
 
 $app = new Engine();
 
-try {
-    $app->register('config', function () {
-        return ['config' => ''];
-    });
-} catch (Exception $e) {
-
-}
-
-try {
-    $app->map('auth', function (){
-        return 123555;
-    });
-} catch (Exception $e) {
-    var_dump($e);
-}
-
-$app->after('auth', function () {
-    echo 'auth after';
-});
+$app->map('error', new ExceptionHandler());
+$app->map('notFound', new NotFoundExceptionHandler());
 
 require APP_PATH . '/routes.php';
 

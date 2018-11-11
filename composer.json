@@ -5,15 +5,19 @@
     "illuminate/database": "^5.7",
     "monolog/monolog": "^1.23",
     "vlucas/phpdotenv": "^2.5",
-    "symfony/config": "^4.1"
+    "symfony/config": "^4.1",
+    "ext-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.4"
   },
   "autoload": {
     "psr-4": {
-      "app\\": "app/"
-    }
+      "App\\": "app/"
+    },
+    "files": [
+      "app/Util/helpers.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {

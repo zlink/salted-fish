@@ -1,5 +1,5 @@
 <?php
 
-use app\controllers\IndexController;
+use App\Controllers\IndexController;
 
-$app->route('/', [IndexController::class, 'index']);
+$app->route('/', [new IndexController(), 'show']);

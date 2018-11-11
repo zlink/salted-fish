@@ -6,12 +6,13 @@
  * Time: 00:14
  */
 
-namespace app\controllers;
+namespace App\Controllers;
 
 class IndexController extends Controller
 {
     public function show()
     {
-        return $this->message('hello world');
+        echo $data['index'];
+        return $this->success('hello world');
     }
 }

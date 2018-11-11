@@ -1,9 +1,9 @@
 <?php
 
-namespace app\console;
+namespace App\Console;
 
-use app\console\commands\HelloCommand;
-use app\console\commands\ServiceCommand;
+use app\Console\commands\HelloCommand;
+use app\Console\commands\ServiceCommand;
 use Symfony\Component\Console\Application;
 
 class Kernel

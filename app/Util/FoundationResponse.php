@@ -6,7 +6,7 @@
  * Time: 02:00
  */
 
-namespace app\util;
+namespace App\Util;
 
 
 class FoundationResponse

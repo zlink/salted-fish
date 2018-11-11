@@ -1,6 +1,6 @@
 <?php
 
-namespace app\util;
+namespace App\Util;
 
 use Flight;
 
@@ -11,7 +11,7 @@ trait Response
     /**
      * @return int
      */
-    public function getStatusCode(): int
+    public function getStatusCode()
     {
         return $this->statusCode;
     }
@@ -20,7 +20,7 @@ trait Response
      * @param int $statusCode
      * @return Response
      */
-    public function setStatusCode(int $statusCode)
+    public function setStatusCode($statusCode)
     {
         $this->statusCode = $statusCode;
 
@@ -29,18 +29,21 @@ trait Response
 
     /**
      * @param $data
-     * @param array $header
+     * @param array $headers
+     * @throws \Exception
      */
-    public function respond($data, $header = [])
+    public function respond($data, $headers = [])
     {
-        return json_encode($data, $this->getStatusCode(), $header);
-        return Flight::json($data, $this->getStatusCode(), $header);
+        Flight::response()->header($headers);
+        Flight::json($data, $this->getStatusCode());
     }
 
     /**
      * @param $status
      * @param array $data
      * @param null $code
+     * @return false|string
+     * @throws \Exception
      */
     public function status($status, array $data, $code = null)
     {
@@ -54,18 +57,26 @@ trait Response
         ];
 
         $data = array_merge($status, $data);
-        return $this->respond($data);
+        $this->respond($data);
     }
 
+    /**
+     * @param $message
+     * @param int $code
+     * @param string $status
+     * @return false|string
+     * @throws \Exception
+     */
     public function failed($message, $code = FoundationResponse::HTTP_BAD_REQUEST, $status = 'error')
     {
-
         return $this->setStatusCode($code)->message($message, $status);
     }
 
     /**
      * @param $message
      * @param string $status
+     * @return false|string
+     * @throws \Exception
      */
     public function message($message, $status = "success")
     {
@@ -74,32 +85,42 @@ trait Response
 
     /**
      * @param string $message
+     * @return false|string|void
+     * @throws \Exception
      */
     public function internalError($message = "Internal Error!")
     {
-        return $this->failed($message, FoundationResponse::HTTP_INTERNAL_SERVER_ERROR);
+        $this->failed($message, FoundationResponse::HTTP_INTERNAL_SERVER_ERROR);
     }
 
     /**
      * @param string $message
+     * @return false|string|void
+     * @throws \Exception
      */
     public function created($message = "created")
     {
-        return $this->setStatusCode(FoundationResponse::HTTP_CREATED)->message($message);
-
+        $this->setStatusCode(FoundationResponse::HTTP_CREATED)->message($message);
     }
 
+    /**
+     * @param $data
+     * @param string $status
+     * @return false|string
+     * @throws \Exception
+     */
     public function success($data, $status = "success")
     {
-
         return $this->status($status, compact('data'));
     }
 
     /**
      * @param string $message
+     * @return false|string|void
+     * @throws \Exception
      */
     public function notFond($message = 'Not Fond!')
     {
-        return $this->failed($message, Foundationresponse::HTTP_NOT_FOUND);
+        $this->failed($message, Foundationresponse::HTTP_NOT_FOUND);
     }
 }

@@ -6,12 +6,12 @@
  * Time: 00:14
  */
 
-namespace app\models;
+namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
 
-class user extends Model
+class Users extends Model
 {
 
 }
