@@ -33,6 +33,7 @@ trait Response
      */
     public function respond($data, $headers = [])
     {
+        // 此处应解耦
         Flight::response()->header($headers);
         Flight::json($data, $this->getStatusCode());
     }
