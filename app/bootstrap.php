@@ -5,6 +5,7 @@ use App\Exceptions\NotFoundExceptionHandler;
 use Dotenv\Dotenv;
 use Dotenv\Exception\ValidationException;
 use flight\Engine;
+use App\Services\ResponseService;
 
 define('ROOT_PATH', dirname(__DIR__));
 define('APP_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'app');

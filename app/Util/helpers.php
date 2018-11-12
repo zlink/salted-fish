@@ -34,3 +34,10 @@ if (!function_exists('request')) {
         return Flight::request();
     }
 }
+
+if (!function_exists('response')) {
+    function response()
+    {
+        return Flight::response();
+    }
+}
