@@ -8,11 +8,16 @@ return [
         'connections' => [
             'mysql' => [
 
-            ]
-        ]
+            ],
+        ],
     ],
 
     'redis' => [
 
-    ]
+    ],
+
+    'log' => [
+        'level' => 'debug',
+        ''
+    ],
 ];

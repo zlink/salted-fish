@@ -6,7 +6,8 @@
     "monolog/monolog": "^1.23",
     "vlucas/phpdotenv": "^2.5",
     "symfony/config": "^4.1",
-    "ext-json": "*"
+    "ext-json": "*",
+    "hassankhan/config": "^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.4"

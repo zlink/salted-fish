@@ -6,6 +6,7 @@ use Dotenv\Dotenv;
 use Dotenv\Exception\ValidationException;
 use flight\Engine;
 use App\Services\ResponseService;
+use Noodlehaus\Config;
 
 define('ROOT_PATH', dirname(__DIR__));
 define('APP_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'app');
@@ -26,9 +27,7 @@ $app->map('error', new ExceptionHandler());
 $app->map('notFound', new NotFoundExceptionHandler());
 
 // 加载系统配置
-$app->register('config', function () {
-
-});
+$app->register('config', Config::class, [ROOT_PATH . '/config']);
 
 //加载日志处理组件
 $app->register('log', function () {
